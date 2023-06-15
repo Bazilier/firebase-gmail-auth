@@ -26,7 +26,7 @@ class SignInVC: UIViewController {
         // Create Sign In Button
         let googleSignInButton = GIDSignInButton()
         googleSignInButton.style = .wide
-        googleSignInButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
+        googleSignInButton.addTarget(self, action: #selector(googleSignInButtonTapped), for: .touchUpInside)
 
         view.addSubview(googleSignInButton)
 
@@ -41,7 +41,7 @@ class SignInVC: UIViewController {
     
     //signInButtonTapped()
     //emailTextFieldChanged()
-    @objc func googleSignIn() {
+    @objc func googleSignInButtonTapped() {
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { user, error in
             if let error = error {
                 print("Ошибка аутентификации через Google: \(error.localizedDescription)")
